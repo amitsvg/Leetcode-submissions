@@ -20,11 +20,8 @@ public:
             if(str[i] != str[str.size() - 1 - i]){
                 return false;                
             }
-            
             i++;
-            // j--;
         }
-        
         
         return true;
     }

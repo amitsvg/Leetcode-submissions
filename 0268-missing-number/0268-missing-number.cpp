@@ -3,7 +3,7 @@ public:
     int missingNumber(vector<int>& nums) {
         int mx = *max_element(nums.begin(), nums.end());
         int arr[mx+1];
-        for(int i=0;i<=mx;i++)arr[i]=0;
+        memset(arr,0,sizeof(arr));
         for(auto i: nums){
             arr[i]++;
         }

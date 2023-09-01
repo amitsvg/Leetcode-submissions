@@ -1,12 +1,11 @@
 class Solution {
 public:
     int cb(int n){
-        int ct=0;
-        while(n>0){
-            if(n & 1) ct++;
-            n=n>>1;
-        }
-        return ct;
+        if(n==0) return 0;
+        if(n==1) return 1;
+        
+        if(n%2==0) return cb(n/2);
+        else return 1 + cb(n/2);
     }
     vector<int> countBits(int n) {
         vector<int> ans;

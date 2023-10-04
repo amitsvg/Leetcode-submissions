@@ -1,16 +1,12 @@
 class Solution {
 public:
-//     int maxProfit(vector<int>& prices, int fee) {
-        
-//     }
-    
     
     int maxProfit(vector<int> &prices,  int fee)
     {
         int n = prices.size();
         vector<vector<int>> dp(n, vector<int> (2, -1));
 
-            function<int(int, int)> sf= [&] (int ind, int buy) -> int{
+            function<int(int, int)> sf= [&] (int ind, int buy){
                 if(ind==n)return 0;
 
                 if(dp[ind][buy]!=-1)return dp[ind][buy];

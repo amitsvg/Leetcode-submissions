@@ -7,9 +7,8 @@ public:
             if(n-i <= 2*limit){
                 int upper = min(limit, n-i);
                 int lower = n-i-upper;
-                if(upper>= lower){
+                // if(upper>= lower)
                     ans += upper - lower + 1;
-                }
             }
         }
         return ans;

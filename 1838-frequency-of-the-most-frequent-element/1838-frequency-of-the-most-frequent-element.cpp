@@ -10,7 +10,7 @@ public:
             long target = nums[right];
             curr += target;
             
-            while ((right - left + 1) * target - curr > k) {
+            while ((right - left + 1) * target > curr + k) {
                 curr -= nums[left];
                 left++;
             }

@@ -2,20 +2,22 @@ class Solution {
 public:
     int maxFrequency(vector<int>& nums, int k) {
         sort(nums.begin(), nums.end());
-        int left = 0;
-        int ans = 0;
-        long curr = 0;
-        
-        for (int right = 0; right < nums.size(); right++) {
+        int left=0;
+        int right=0;
+        long total = 0;
+        int ans = 1;
+        while(right < nums.size()){
+            
             long target = nums[right];
-            curr += target;
+            total += target;
             
-            while ((right - left + 1) * target > curr + k) {
-                curr -= nums[left];
+            while((right-left+1)*target > total+k){
+                total -=nums[left];
                 left++;
-            }
-            
-            ans = max(ans, right - left + 1);
+            }            
+            cout<<right-left+1<<endl;
+            ans = max(ans, right-left+1);
+            right++;
         }
         
         return ans;

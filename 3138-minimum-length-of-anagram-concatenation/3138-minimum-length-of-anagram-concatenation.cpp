@@ -17,22 +17,27 @@ public:
 //     }
     bool ff(string s, int k){
         int n =s.size();
-        unordered_map<int,int> mp1,mp2;
+        int mp1[26];
         int i=0;
         while(i<k){
-            mp1[s[i]]++;
+            mp1[s[i]-'a']++;
             i++;
         }
         for(;i<n;i+=k){
+            int mp2[26];
+            for(int i=0; i<26; i++)mp2[i]=mp1[i];
             for(int j=i; j<i+k; j++){
-                mp2[s[j]]++;
+                mp2[s[j]-'a']--;
             }
-            for(char ch='a'; ch<='z'; ch++){
-                if(mp1[ch] != mp2[ch]){
-                    return false;
-                }
+            // for(char ch='a'; ch<='z'; ch++){
+            //     if(mp1[ch] != mp2[ch]){
+            //         return false;
+            //     }
+            // }
+            for(int i=0; i<26;i++){
+                if(mp2[i]!=0)return 0;
             }
-            mp2.clear();
+            // mp2.clear();
         }
         return true;
         
